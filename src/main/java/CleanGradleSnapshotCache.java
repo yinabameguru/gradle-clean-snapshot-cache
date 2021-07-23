@@ -32,7 +32,7 @@ public class CleanGradleSnapshotCache {
         if (!cacheDir.exists() || !cacheDir.isDirectory()) {
             return "no snapshot cache";
         }
-        File[] groupDirs = cacheDir.listFiles(pathname -> pathname.getName().startsWith("com.fangdd"));
+        File[] groupDirs = cacheDir.listFiles();
         if (groupDirs == null) {
             return "no snapshot cache";
         }
