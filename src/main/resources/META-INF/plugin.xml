@@ -1,6 +1,6 @@
 <idea-plugin>
     <id>com.github.yinabameguru.gradlecleansnapshotcache</id>
-    <name>gradle-clean-snapshot-cache</name>
+    <name>Gradle-Clean-Snapshot-Cache</name>
     <vendor>yinabameguru</vendor>
 
     <!-- Product and plugin compatibility requirements -->
@@ -16,4 +16,11 @@
         <listener class="com.github.yinabameguru.gradlecleansnapshotcache.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
+    <actions>
+        <action id="cn.com.meguru.CleanGradleSnapshotCacheAction" class="CleanGradleSnapshotCacheAction"
+                text="Clean Gradle Snapshot Cache" description="Clean gradle snapshot cache action">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt C"/>
+        </action>
+    </actions>
 </idea-plugin>
