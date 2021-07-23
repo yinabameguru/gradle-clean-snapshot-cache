@@ -1,6 +1,6 @@
 <idea-plugin>
     <id>com.github.yinabameguru.gradlecleansnapshotcache</id>
-    <name>Gradle-Clean-Snapshot-Cache</name>
+    <name>Gradle Clean Snapshot Cache</name>
     <vendor>yinabameguru</vendor>
 
     <!-- Product and plugin compatibility requirements -->
