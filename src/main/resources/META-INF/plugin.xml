@@ -11,16 +11,6 @@
     <!-- Product and plugin compatibility requirements -->
     <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
-
-    <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.yinabameguru.gradlecleansnapshotcache.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.yinabameguru.gradlecleansnapshotcache.services.MyProjectService"/>
-    </extensions>
-
-    <applicationListeners>
-        <listener class="com.github.yinabameguru.gradlecleansnapshotcache.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
     <actions>
         <action id="cn.com.meguru.CleanGradleSnapshotCacheAction" class="CleanGradleSnapshotCacheAction"
                 text="Clean Gradle Snapshot Cache" description="Clean gradle snapshot cache action">
