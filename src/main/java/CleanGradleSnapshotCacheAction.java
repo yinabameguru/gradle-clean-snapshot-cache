@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 public class CleanGradleSnapshotCacheAction extends AnAction {
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
-        String msg = CleanGradleSnapshotCache.cleanGradleSnapshotCache();
+        String msg = new CleanGradleSnapshotCache().cleanGradleSnapshotCache();
         Messages.showMessageDialog(e.getProject(), msg, e.getPresentation().getDescription(), Messages.getInformationIcon());
     }
 }

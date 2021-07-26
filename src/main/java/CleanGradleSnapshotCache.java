@@ -11,8 +11,8 @@ import java.util.List;
  **/
 public class CleanGradleSnapshotCache {
 
-    static List<File> snapshotFiles = new ArrayList<>();
-    static StringBuilder resMsg = new StringBuilder();
+    List<File> snapshotFiles = new ArrayList<>();
+    StringBuilder resMsg = new StringBuilder();
 
     static FileFilter snapshotFilter = pathname -> pathname.getName().endsWith("SNAPSHOT");
     static String jarPath = new StringBuilder(System.getProperty("user.home"))
@@ -26,7 +26,7 @@ public class CleanGradleSnapshotCache {
             .append("files-2.1")
             .toString();
 
-    public static String cleanGradleSnapshotCache() {
+    public String cleanGradleSnapshotCache() {
         System.out.println("invoke cleanGradleSnapshotCache");
         File cacheDir = new File(jarPath);
         if (!cacheDir.exists() || !cacheDir.isDirectory()) {
@@ -36,11 +36,11 @@ public class CleanGradleSnapshotCache {
         if (groupDirs == null) {
             return "no snapshot cache";
         }
-        Arrays.stream(groupDirs).forEach(CleanGradleSnapshotCache::findSnapshotFileRecursively);
+        Arrays.stream(groupDirs).forEach(this::findSnapshotFileRecursively);
         return resMsg.length() > 0 ? resMsg.toString() : "no snapshot cache";
     }
 
-    public static void findSnapshotFileRecursively(File root) {
+    public void findSnapshotFileRecursively(File root) {
         if (root == null || !root.exists()) {
             return;
         }
@@ -52,17 +52,17 @@ public class CleanGradleSnapshotCache {
         if (!root.isDirectory() || (children = root.listFiles()) == null) {
             return;
         }
-        Arrays.stream(children).forEach(CleanGradleSnapshotCache::findSnapshotFileRecursively);
-        snapshotFiles.forEach(CleanGradleSnapshotCache::deleteRecursively);
+        Arrays.stream(children).forEach(this::findSnapshotFileRecursively);
+        snapshotFiles.forEach(this::deleteRecursively);
     }
 
-    public static void deleteRecursively(File root) {
+    public void deleteRecursively(File root) {
         if (root == null || !root.exists()) {
             return;
         }
         File[] children = null;
         if (root.isDirectory() && (children = root.listFiles()) != null) {
-            Arrays.stream(children).forEach(CleanGradleSnapshotCache::deleteRecursively);
+            Arrays.stream(children).forEach(this::deleteRecursively);
         }
         boolean delete = root.delete();
         String msg = delete ? "SUCCESS : " + root : "FAIL : " + root;
