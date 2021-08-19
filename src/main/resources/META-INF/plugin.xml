@@ -7,10 +7,12 @@
         <p>Clean up the Snapshot dependencies in gradle cache</p>
         <p>The cache directory is located at /userHome/.gradle/caches/modules-2/files-2.1<p>
         <p>Usage : menu select <i>Tools | Gradle Clean Snapshot Cache</i> or use shortcut keys <i>ctrl alt C</i><p>
+        <p>If you have any suggestions or found a bug, please create an issue on [GitHub](https://github.com/yinabameguru/gradle-clean-snapshot-cache) or use the contact form on the plugin homepage.</p>
 
         <p>清理gradle缓存的snapshot依赖包</p>
         <p>缓存目录定位在/userHome/.gradle/caches/modules-2/files-2.1<p>
         <p>使用方法 菜单栏选择 <i>Tools | Gradle Clean Snapshot Cache</i> 或者使用快捷键 <i>ctrl alt C</i><p>
+        <p>如果有建议或者发现bug可以在[GitHub](https://github.com/yinabameguru/gradle-clean-snapshot-cache) 创建issue<p>
     ]]></description>
 
     <!-- Product and plugin compatibility requirements -->
